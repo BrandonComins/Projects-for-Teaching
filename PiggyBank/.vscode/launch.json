@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "PiggyBank.Main",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Launch Calculator",
             "request": "launch",
             "mainClass": "PiggyBank.Main",
