@@ -6,19 +6,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Current File",
-            "request": "launch",
-            "mainClass": "${file}",
-            "vmArgs": "-enableassertions"
-        },
-        {
-            "type": "java",
-            "name": "Launch Main",
+            "name": "Launch Calculator",
             "request": "launch",
             "mainClass": "PiggyBank.Main",
-            "projectName": "Java Workspace_6af4eee",
+            "projectName": "PiggyBank",
             "vmArgs": "-enableassertions"
-            
         }
     ]
 }
