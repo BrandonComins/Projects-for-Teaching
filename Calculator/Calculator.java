@@ -1,12 +1,13 @@
 package Calculator;
 
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Calculator{
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
-        char operator = 'z';
-        double num_1 = 0, num_2 = 0;
+        char operator;
+        double num_1 = 0, num_2;
 
         while(true){
             //Getting input for operator
@@ -27,11 +28,16 @@ public class Calculator{
                     
                     System.out.println("Sorry invalid input, please try again" + '\n');    
                     continue;
-                }
+            }
 
             //Getting input for numbers
-            num_1 = getNumber(input, "first");
-            num_2 = getNumber(input, "second");
+            try{
+                num_1 = getNumber(input, "first");
+                num_2 = getNumber(input, "second");
+            } catch(InputMismatchException e){
+                System.out.println("input must be a number");
+                continue;
+            }
             
             //Handling what to do
             if(operator == '+') {
@@ -78,22 +84,21 @@ public class Calculator{
         return a % b;
     }
 
-    public static double abs(double a){
+    public static double abs(double a){     
         return a > 0 ? a : -a;
+        /*codition ? true value : false value */ 
     }
 
     public static double getNumber(Scanner input, String message){
         System.out.print("Enter the " + message + " number: ");
-        double number = input.nextDouble();
 
-        return number;
+        return input.nextDouble();
     }
-
+     
     public static char getOperator(Scanner input){
         System.out.print("Enter an operator: ");
-        char operator = input.next().charAt(0);
-
-        return operator;
+        
+        return input.next().charAt(0);
     }
 
     public static void print(double value){
