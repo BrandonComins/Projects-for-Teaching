@@ -45,7 +45,7 @@ public class PiggyBank {
 
     public void checkValidCoins(int q, int d, int n, int p){
         if(q < 0){
-            System.out.printl("Can't put negative quarters in, Q = 0");
+            System.out.println("Can't put negative quarters in, Q = 0");
             this.quarters = 0;
         }
         if (d < 0){
