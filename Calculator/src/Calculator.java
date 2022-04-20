@@ -1,4 +1,3 @@
-package Calculator;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -49,14 +48,11 @@ public class Calculator{
             else if(operator == '*'){
                 print(multiply(num_1, num_2));
             }
-
             else if(operator == '/'){
                 print(divide(num_1, num_2));
             }
-
             else if(operator == '%'){
                 print(modulus(num_1, num_2));
-            
             }else{
                 print(Math.pow(num_1, num_2));
             }
