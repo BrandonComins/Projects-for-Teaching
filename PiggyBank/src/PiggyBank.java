@@ -26,6 +26,18 @@ public class PiggyBank {
         this.pennies  += checkValidPennies(p);
     }
 
+    public void combineBanks(PiggyBank right){
+        this.quarters += right.quarters;
+        this.dimes += right.dimes;
+        this.nickels += right.nickels;
+        this.pennies += right.pennies;
+
+        right.quarters = 0;
+        right.dimes = 0;
+        right.nickels = 0;
+        right.pennies = 0;
+    }
+
     public void printTotalAmount(){
         double total = this.quarters * .25 + this.dimes * .1
             + this.nickels * .05 + this.pennies * .01;
