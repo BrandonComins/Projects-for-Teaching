@@ -9,7 +9,9 @@
             "name": "Launch Main",
             "request": "launch",
             "mainClass": "PiggyBank.Main",
-            "projectName": ""
+            "projectName": "",
+            "java.debug.settings.vmArgs": "-ea"
+
         },
         {
             "type": "java",
@@ -17,7 +19,7 @@
             "request": "launch",
             "mainClass": "PiggyBank.Main",
             "projectName": "PiggyBank",
-            "vmArgs": "-enableassertions"
+            "java.debug.settings.vmArgs": "-ea"
         }
     ]
 }
