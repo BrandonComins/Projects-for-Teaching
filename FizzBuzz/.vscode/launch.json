@@ -6,26 +6,22 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Main",
+            "name": "Launch Current File",
             "request": "launch",
-            "mainClass": "Main",
-            "projectName": ""
+            "mainClass": "${file}"
         },
         {
             "type": "java",
-            "name": "Launch Main",
+            "name": "Launch FizzBuzz",
             "request": "launch",
-            "mainClass": "PiggyBank.Main",
-            "projectName": "",
-            "java.debug.settings.vmArgs": "-ea"
+            "mainClass": "FizzBuzz",
+            "projectName": "FizzBuzz_b486c6d7"
         },
         {
             "type": "java",
             "name": "Launch Calculator",
             "request": "launch",
-            "mainClass": "PiggyBank.Main",
-            "projectName": "PiggyBank",
-            "java.debug.settings.vmArgs": "-ea"
+            "mainClass": "Calculator.Calculator"
         }
     ]
 }
