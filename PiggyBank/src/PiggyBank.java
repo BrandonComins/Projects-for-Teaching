@@ -5,13 +5,10 @@ public class PiggyBank {
 
     //Constructor: this is called when you create an object
     public PiggyBank(int q, int d, int n, int p){
-
-        this.quarters = q;
-        this.dimes = d;
-        this.nickels = n;
-        this.pennies = p;
-
-        checkValidCoins(this.quarters, this.dimes, this.nickels, this.pennies);
+        this.quarters = checkValidQuarters(q);
+        this.dimes = checkValidDimes(d);
+        this.nickels = checkVaidNickels(n);
+        this.pennies = checkValidPennies(p);
     }
 
     //Overloading Constuctor, this will be called instead if you put no parameters
@@ -22,12 +19,11 @@ public class PiggyBank {
         this.pennies  = 0;
     }
 
-    public void insertChange(int q, int d, int n, int p){
-        this.quarters += q;
-        this.dimes    += d;
-        this.nickels  += n;
-        this.pennies  += p;
-
+    public void insertChange(int q, int d, int n, int p){        
+        this.quarters += checkValidQuarters(q);
+        this.dimes    += checkValidDimes(d);
+        this.nickels  += checkVaidNickels(n);
+        this.pennies  += checkValidPennies(p);
     }
 
     public void printTotalAmount(){
@@ -44,24 +40,39 @@ public class PiggyBank {
         System.out.println("pennies: "  + this.pennies);
     }
 
-    public void checkValidCoins(int q, int d, int n, int p){
+    private int checkValidQuarters(int q){
         if(q < 0){
             System.out.println("Can't put negative quarters in, Q = 0");
-            this.quarters = 0;
-        }
-        if (d < 0){
-            System.out.println("Can't put negative dimes in, D = 0");
-            this.dimes = 0;
-        }
-        if (n < 0){
-            System.out.println("Can't put negative nickels in, N = 0");
-            this.nickels = 0;
-        }
-        
-        if (p < 0){
-            System.out.println("Can't have negative pennies, P = 0");
-            this.pennies = 0;
+            q = 0;
         }
 
+        return q;
+    }
+
+    private int checkValidDimes(int d){
+        if (d < 0){
+            System.out.println("Can't put negative dimes in, D = 0");
+            d = 0;
+        }
+
+        return d;
+    }
+
+    private int checkVaidNickels(int n){
+        if (n < 0){
+            System.out.println("Can't put negative nickels in, N = 0");
+            n = 0;
+        }
+
+        return n;
+    }
+
+    private int checkValidPennies(int p){
+        if (p < 0){
+            System.out.println("Can't have negative pennies, P = 0");
+            p = 0;
+        }
+
+        return p;
     }
 }
