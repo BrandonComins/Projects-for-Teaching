@@ -14,15 +14,17 @@ public class Main {
             try{
                 int user_input = printMainMenu(input);
                 if(user_input == 1){ // Play game
-                    //play game
+                    playGame(player_1, player_2);
                 }
                 else if (user_input == 2){ // options
                     System.out.println("\nSelect a Player: ");
                     System.out.println("1. " + player_1.name);
                     System.out.println("2. " + player_2.name);
                     System.out.println("3. Back");
+                    
                     System.out.print("\nYour input: ");
                     user_input = input.nextInt();
+                    
                     if(user_input == 1){
                         printOptions(input, player_1);
                     }
@@ -124,5 +126,9 @@ public class Main {
         }else{
             throw new InputMismatchException();
         }
+    }
+
+    public static void playGame(Player player_1, Player player_2){
+        GameBoard board = new GameBoard(player_1, player_2);
     }
 }
