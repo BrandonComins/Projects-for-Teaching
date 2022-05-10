@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class GameBoard {
+    @SuppressWarnings("unused")
     private Player player_1, player_2;
     private String[][] board = {{" ", " ", " "},
                                 {" ", " ", " "},
