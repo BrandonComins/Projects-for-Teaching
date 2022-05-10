@@ -14,7 +14,7 @@ public class Main {
             try{
                 int user_input = printMainMenu(input);
                 if(user_input == 1){ // Play game
-                    playGame(player_1, player_2);
+                    playGame(player_1, player_2, input);
                 }
                 else if (user_input == 2){ // options
                     System.out.println("\nSelect a Player: ");
@@ -128,7 +128,18 @@ public class Main {
         }
     }
 
-    public static void playGame(Player player_1, Player player_2){
+    public static void playGame(Player player_1, Player player_2, Scanner input){
         GameBoard board = new GameBoard(player_1, player_2);
+        while(true){
+            board.printBoard();
+            
+            if(board.takeTurn(player_1, input)){
+                break;
+            }
+            
+            if(board.takeTurn(player_2, input)){
+                break;
+            }
+        }
     }
 }
