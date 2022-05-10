@@ -1,18 +1,10 @@
-## Getting Started
+Tic Tac Toe
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Meant for students to practice their skill on classes and arrays.
 
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Students need to make
+1. Menu with play game, options, and exit
+2. Options menu, needs to be able to change a player's name, symbol, and color.
+3. Make a functional game of Player vs Player Tic Tac Toe.
+4. Extra function can make Human vs AI.
+5. Extra option can make different levels of difficulty for the AI.
