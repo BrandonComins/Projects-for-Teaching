@@ -14,9 +14,13 @@ public class Main {
             try{
                 int user_input = printMainMenu(input);
                 if(user_input == 1){ // Play game
-                    playGame(player_1, player_2, input);
+                    playHumanGame(player_1, player_2, input);
                 }
-                else if (user_input == 2){ // options
+                else if(user_input == 2){
+                    playAIGame(player_1, player_2, input);
+
+                }
+                else if (user_input == 3){ // options
                     System.out.println("\nSelect a Player: ");
                     System.out.println("1. " + player_1.name);
                     System.out.println("2. " + player_2.name);
@@ -37,7 +41,7 @@ public class Main {
                         throw new InputMismatchException();
                     }
                 }
-                else if (user_input == 3){ // Exit
+                else if (user_input == 4){ // Exit
                     break;
                 }else{
                     throw new InputMismatchException();
@@ -54,9 +58,10 @@ public class Main {
 
     public static int printMainMenu(Scanner input){
         System.out.println("\nMain Menu: ");
-        System.out.println("1. Play Game");
-        System.out.println("2. Options");
-        System.out.println("3. Exit");
+        System.out.println("1. Play Human Game");
+        System.out.println("2. Play AI Game");
+        System.out.println("3. Options");
+        System.out.println("4. Exit");
 
         System.out.print('\n' + "Your input: ");
         return input.nextInt();
@@ -128,16 +133,32 @@ public class Main {
         }
     }
 
-    public static void playGame(Player player_1, Player player_2, Scanner input){
+    public static void playHumanGame(Player player_1, Player player_2, Scanner input){
         GameBoard board = new GameBoard(player_1, player_2);
         while(true){
             board.printBoard();
             
-            if(board.takeTurn(player_1, input)){
+            if(board.takeHumanTurn(player_1, input)){
                 break;
             }
             
-            if(board.takeTurn(player_2, input)){
+            if(board.takeHumanTurn(player_2, input)){
+                break;
+            }
+        }
+        
+    }
+
+    public static void playAIGame(Player player_1, Player player_2, Scanner input){
+        GameBoard board = new GameBoard(player_1, player_2);
+        while(true){
+            board.printBoard();
+            
+            if(board.takeHumanTurn(player_1, input)){
+                break;
+            }
+            
+            if(board.takeAITurn(player_2)){
                 break;
             }
         }

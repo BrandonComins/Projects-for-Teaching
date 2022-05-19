@@ -86,7 +86,7 @@ public class GameBoard {
         System.out.println();
     }
 
-    public boolean takeTurn(Player player, Scanner player_input){
+    public boolean takeHumanTurn(Player player, Scanner player_input){
         char row;
         char colunm;
 
@@ -129,5 +129,89 @@ public class GameBoard {
             }
         }
         return false;
+    }
+
+    boolean takeAITurn(Player player){
+        int row = AICheckRows(player);
+
+        if(row != -1){
+            for(int i = 0; i < 3; ++i){
+                if(board[row][i] == " "){
+                    board[row][i] = player.color + player.symbol + Colors.WHITE;
+                    break;
+                }
+            }
+        }
+
+        printBoard();
+        if (checkWin()){
+            System.out.println(player.name + " wins!");
+            resetBoard();
+            return true;
+        }
+        else if(checkTie()){
+            System.out.println("Tie game!");
+            resetBoard();
+            return true;
+        }
+        
+        return false;
+    }
+
+
+    int AICheckRows(Player player){
+        for(int i = 0; i < 3; ++i){
+            int victoryPoints = 0;
+            for(int j = 0; j < 3; ++j){
+                if(!board[i][j].equals(player.color + player.symbol + Colors.WHITE) 
+                    && !board[i][j].equals(" ")){
+                        ++victoryPoints;
+                        if(victoryPoints == 2) return i;
+
+                }
+            }
+        }
+        return -1;
+    }
+
+    int[] AICheckColunms(Player player){
+        int spot[] = {-1, -1};
+        int victoryPoints = 0;
+        for(int i = 0; i < 3; ++i){
+            if(!board[0][i].equals(player.color + player.symbol + Colors.WHITE) 
+                && !board[0][i].equals(" ")){
+                    ++victoryPoints;
+                if(victoryPoints == 2){
+                    spot[0] = 0; spot[1] = i;
+                    return spot;
+                }
+            }
+        }
+        
+        victoryPoints = 0;
+        for(int i = 0; i < 3; ++i){
+            if(!board[1][i].equals(player.color + player.symbol + Colors.WHITE) 
+                && !board[1][i].equals(" ")){
+                    ++victoryPoints;
+                if(victoryPoints == 2){
+                    spot[0] = 1; spot[1] = i;
+                    return spot;
+                }
+            }
+        }  
+
+        victoryPoints = 0;
+        for(int i = 0; i < 3; ++i){
+            if(!board[2][i].equals(player.color + player.symbol + Colors.WHITE) 
+                && !board[2][i].equals(" ")){
+                    ++victoryPoints;
+                if(victoryPoints == 2){
+                    spot[0] = 2; spot[1] = i;
+                    return spot;
+                }
+            }
+        }
+
+        return spot;
     }
 }
